@@ -5,7 +5,7 @@ var mysqlConnection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'test123',
-    database: 'iyitamirler_db',
+    database: 'birlisanbirinsan',
     multipleStatements: true
   });
   console.log('test succeded.')
