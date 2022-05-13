@@ -26,14 +26,15 @@ const Login = () => {
     <div>
         <div className="mylogin">
             <div className="loginForm">
-                <form  onSubmit={submitHandler}>
-                    <input type="text" className="myinput" required
-                            onChange = { e => setUser(e.target.value)}/>
-                    <br/><br/>
-                    <input type="password" className="myinput"  required value= {password}
+                <form  id="signInForm" onSubmit={submitHandler}>
+                  <br></br>
+                  <br></br>
+                    <input type="text" className="myinput" required placeholder="Kullanıcı Adı" onChange = { e => setUser(e.target.value)}/>
+                    <input type="password" className="myinput"  placeholder="Şifre" required value= {password}
                             onChange = { e => setPassword(e.target.value)}/>
-                    <br/><br/>
-                    <input type="submit"  value="Sign in" className="btn btn-primary mybtn" />
+                    <input id="signInButton" type="submit"  value="Giriş Yap" className="btn btn-primary mybtn" />
+                  <br></br>
+                  <br></br>
                 </form>
             </div>
         </div>
