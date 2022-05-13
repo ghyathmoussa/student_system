@@ -8,8 +8,9 @@ router.get('/',(req,res) => {
     res.status(200).json({message:"Hello"})
 })
 
-router.post('/login', loginC.login)
+router.post('/auth/login', loginC.login)
 router.post('/register-student',studentC.createStudents)
+router.get('/show-students',studentC.showStudents)
 
 
 

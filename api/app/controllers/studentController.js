@@ -1,10 +1,10 @@
 const mysqlConnection = require("../config/db_config")
 
-exports.createStudents = (res,req) => {
+exports.createStudents = (req,res) => {
     console.log(req.body)
-    const {ID,name,surname,tc,lesson} = req.body
+    const {name,surname,tc,phone,adress} = req.body
 
-    mysqlConnection.query('INSERT (ID,name,surname,tc,lesson) to ogrenci VALUES (?,?,?,?,?)',[ID,name,surname,tc,lesson],(err,result) => {
+    mysqlConnection.query('INSERT (name,surname,tc,adress) to ogrenci VALUES (?,?,?,?,?)',[name,surname,tc,phone,adress],(err,result) => {
         if(err){
             console.log(err)
             res.status(500).json({message:'error in insertion'})
@@ -13,6 +13,23 @@ exports.createStudents = (res,req) => {
                 res.status(200).json({message:'insert opertation successful!'})
             }else{
                 res.json({message:'error in result'})
+            }
+        }
+    })
+}
+
+exports.showStudents = (req,res) => {
+    console.log(req.body)
+    mysqlConnection.query('SELECT * FROM ogrenci',(err,result) => {
+        console.log(result)
+        // console.log(fields)
+        if(err){
+            console.log(err)
+            res.status(500).json({message:'error in showStudent function'})
+        }else{
+            console.log(result)
+            if(result){
+                res.status(200).json(result)
             }
         }
     })
