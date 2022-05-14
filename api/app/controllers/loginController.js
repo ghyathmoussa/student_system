@@ -1,5 +1,4 @@
-const mysqlConnection = require("../config/db_config")
-
+const mysqlConnection = require('../config/db_config')
 exports.login = async (req,res) =>{
     console.log(req.body);
     const { username, password} = req.body;

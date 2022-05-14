@@ -67,10 +67,16 @@ INSERT INTO ders(dil, sube_id, ogretmen_id, derslik_id, starttime, endtime, fiya
 VALUES('ingilizce' ,(SELECT sube_id FROM sube WHERE isim='esenler'), 1, 1, '12:05:00', '13:05:00', 6000, 'cuma');
 
 INSERT INTO ders(dil, sube_id, ogretmen_id, derslik_id, starttime, endtime, fiyat, gun) 
+VALUES('ingilizce' ,(SELECT sube_id FROM sube WHERE isim='esenler'), 1, 1, '16:05:00', '17:05:00', 6000, 'persembe');
+
+INSERT INTO ders(dil, sube_id, ogretmen_id, derslik_id, starttime, endtime, fiyat, gun) 
 VALUES('fransizca' ,(SELECT sube_id FROM sube WHERE isim='esenler'), 1, 1, '14:05:00', '15:05:00', 3500, 'sali');
 
 INSERT INTO ders(dil, sube_id, ogretmen_id, derslik_id, starttime, endtime, fiyat, gun)
 VALUES('fransizca' ,(SELECT sube_id FROM sube WHERE isim='esenler2'), 1, 1, '14:05:00', '15:05:00', 4000, 'pazartesi');
+
+INSERT INTO ders(dil, sube_id, ogretmen_id, derslik_id, starttime, endtime, fiyat, gun)
+VALUES('rusca' ,(SELECT sube_id FROM sube WHERE isim='esenler2'), 1, 1, '09:05:00', '10:05:00', 4000, 'persembe');
 
 INSERT INTO dil(dil, ogretmen_id) VALUES('ingilizce', 1);
 
@@ -99,7 +105,18 @@ SELECT ogrenci.isim, ogrenci.soyisim, ogrenci.tc, kayit.pesin FROM ogrenci,kayit
  -- her sube icin once dilleri almayi unutma
 SELECT GROUP_CONCAT(ders.dil ORDER BY ders.dil SEPARATOR ', ') AS diller, sube.isim, sube.adres, sube.tanitim FROM sube, ders WHERE sube.sube_id=ders.sube_id GROUP BY sube.sube_id;
 
+-- ders ismi ve subeismi ile (subeismi uniq databasede değil ama değiştirebiliriz önemsiz detay) dersleri listeleme
+SELECT ders.dil ,ders.starttime, ders.endtime, ders.gun, ders.fiyat FROM sube, ders WHERE (SELECT sube.sube_id WHERE sube.isim ='esenler') AND ders.dil='ingilizce';
 
+-- taksit bilgisi getirme bilgi ogrenci.odeme odenmemis taksit sayisi (fiyat bilgisi de kullanacaksak ders.fiyattan cekilebilir) verirken  odeme/taksit sayisi (seklinde taksit sayisi 6 normalde eger degisken olacaksa ogrenci.odeme ve ogrenci.taksitsay seklinde veritabanini degistirebilirsiniz) verilebilir.
+SELECT ogrenci.odeme, ders.dil FROM ogrenci, ders WHERE ogrenci.id = (SELECT ogrenci.id FROM ogrenci WHERE ogrenci.tc = '43512373898')
+ AND ders.ders_id = (SELECT kayit.ders_id FROM kayit WHERE ogrenci_id = (SELECT ogrenci.id FROM ogrenci WHERE ogrenci.tc = '43512373898'));
+
+-- taksit alma durumunda ne yapilacak ogrenci idsi ile onceden 0 olup olmadigi kontrol edilip ona göre taksit al butonu devre disi birakilabilir vs. bu queryde sonuc en az 0 geliyor
+UPDATE ogrenci SET ogrenci.odeme = GREATEST(0 ,ogrenci.odeme - 1) WHERE ogrenci.id = (SELECT o.id FROM (SELECT * FROM ogrenci) as o WHERE o.tc = '43512373898');
+
+-- kurs secme ekranında gelecek dersler bilgiler eklenebilir cıkarilabilir fazla veya eksik olduysa
+SELECT ders.dil, sube.isim, ders.gun, ders.starttime, ders.endtime, ders.fiyat FROM ders, sube WHERE ders.sube_id = sube.sube_id ORDER BY ders.dil; 
 
 
                        
