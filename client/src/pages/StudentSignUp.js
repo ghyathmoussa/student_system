@@ -31,19 +31,17 @@ const StudentSignUp = () => {
 
   return (
     <div>
-        <div className="signUp">
-            <div className="signUpForm">
-                <button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button>
-                <form  id="signUpForm" onSubmit={submitHandler}>
-                    <input type="text" className="myinput" required placeholder="Ad" onChange = { e => setName(e.target.value)}/>
-                    <input type="text" className="myinput" required placeholder="Soyad" onChange = { e => setSurname(e.target.value)}/>
-                    <input type="text" className="myinput" required placeholder="T.C. No." onChange = { e => setId(e.target.value)}/>
-                    <input type="text" className="myinput" required placeholder="Telefon No." onChange = { e => setPhone(e.target.value)}/>
-                    <input type="text" className="myinput" required placeholder="Adres" onChange = { e => setAddress(e.target.value)}/>
-                    <input id="signUpButton" type="submit"  value="Kaydet" className="btn btn-primary mybtn" />
-                </form>
-            </div>
-        </div>
+      <div className="signUp">
+      <button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button>
+        <form  id="signUpForm" onSubmit={submitHandler}>
+            <input type="text" className="myinput" required placeholder="Ad" onChange = { e => setName(e.target.value)}/>
+            <input type="text" className="myinput" required placeholder="Soyad" onChange = { e => setSurname(e.target.value)}/>
+            <input type="text" className="myinput" required placeholder="T.C. No." onChange = { e => setId(e.target.value)}/>
+            <input type="text" className="myinput" required placeholder="Telefon No." onChange = { e => setPhone(e.target.value)}/>
+            <input type="text" className="myinput" required placeholder="Adres" onChange = { e => setAddress(e.target.value)}/>
+            <input id="signUpButton" type="submit"  value="Kaydet" className="btn btn-primary mybtn" />
+        </form>
+      </div>
     </div>
   )
   
