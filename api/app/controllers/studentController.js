@@ -34,3 +34,7 @@ exports.showStudents = (req,res) => {
         }
     })
 }
+
+// exports.findOne = (req,res) => {
+//     console.log(req.body)
+// }
