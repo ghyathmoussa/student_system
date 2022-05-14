@@ -81,6 +81,10 @@ body{
   height: 50px;
   margin: auto;
 }
+#signInButton:hover{
+  cursor: pointer;
+}
+
 /**********************************Main Page ***************************************/
 
 .container{
@@ -113,5 +117,16 @@ body{
   font-size: 20px;
 }
 .btn-lg:hover{
+  cursor: pointer;
+}
+/********************************** SignUp page **************************/
+
+#signUpButton{
+  background-color: #67DCB2;
+  width: 136px;
+  height: 50px;
+  margin: auto;
+}
+#signUpButton:hover{
   cursor: pointer;
 }
