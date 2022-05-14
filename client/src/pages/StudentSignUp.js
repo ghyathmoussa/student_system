@@ -31,9 +31,10 @@ const StudentSignUp = () => {
 
   return (
     <div>
-        <div className="mylogin">
-            <div className="loginForm">
-                <form  id="signInForm" onSubmit={submitHandler}>
+        <div className="signUp">
+            <div className="signUpForm">
+                <button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button>
+                <form  id="signUpForm" onSubmit={submitHandler}>
                     <input type="text" className="myinput" required placeholder="Ad" onChange = { e => setName(e.target.value)}/>
                     <input type="text" className="myinput" required placeholder="Soyad" onChange = { e => setSurname(e.target.value)}/>
                     <input type="text" className="myinput" required placeholder="T.C. No." onChange = { e => setId(e.target.value)}/>
