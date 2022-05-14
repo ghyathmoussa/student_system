@@ -21,8 +21,6 @@ exports.createStudents = (req,res) => {
 exports.showStudents = (req,res) => {
     console.log(req.body)
     mysqlConnection.query('SELECT * FROM ogrenci',(err,result) => {
-        console.log(result)
-        // console.log(fields)
         if(err){
             console.log(err)
             res.status(500).json({message:'error in showStudent function'})
@@ -35,6 +33,15 @@ exports.showStudents = (req,res) => {
     })
 }
 
-// exports.findOne = (req,res) => {
-//     console.log(req.body)
-// }
+exports.findOne = (req,res) => {
+    console.log(req.body)
+    mysqlConnection.query(`SELECT * FROM ogrenci WHERE tc=${req.body.tc}`,(err,result) => {
+        if(err){
+            console.log(err)
+            res.status(500).json({message:`error in finding student with TC:${req.body.tc}`})
+        }else{
+            console.log(result)
+            res.status(200).json(result)
+        }
+    })
+}

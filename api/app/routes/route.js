@@ -9,6 +9,7 @@ const branchC = require('../controllers/branchController')
 router.post('/auth/login', loginC.login)
 router.post('/register-student',studentC.createStudents)
 router.get('/show-students',studentC.showStudents)
+router.post('/find-student',studentC.findOne)
 router.get('/show-branchs',branchC.showBranchs)
 
 module.exports = router;
