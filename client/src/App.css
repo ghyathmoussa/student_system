@@ -36,6 +36,11 @@
     transform: rotate(360deg);
   }
 }
+*{
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
 
 html,body{
   width: 100vw;
@@ -70,7 +75,7 @@ body{
 
 .myinput{
   background-color: #F8B189;
-  width: 60%;
+  width: calc(40% + 120px);
   height: 40px;
   border: 0px black;
   margin: auto;
@@ -129,4 +134,57 @@ body{
 }
 #signUpButton:hover{
   cursor: pointer;
+}
+
+/************************************ List Students *****************************/
+
+.listStudents{
+  width: 100vw;
+  height: 100vh;
+}
+#backButton{
+  width: 100px;
+  height: 40px;
+  border-radius: 50px;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+.listContainer{
+  width: 65vw;
+  height: 100vh;
+  background-color: #F8B189;
+  margin: auto;
+  padding-top: 15px;
+}
+.columnNames{
+  width: 95%;
+  border-radius: 40px;
+  display: flex;
+  flex-grow: column;
+  justify-content: space-around;
+  margin: auto;
+  background-color: #C4C4C4;
+}
+.Entry{
+  display: flex;
+  flex-grow: column;
+  justify-content: space-around;
+  width: 95%;
+  height: 35px;
+  margin: auto;
+  border: 1px solid black;
+  margin-top: 5px;
+}
+.listContainer p{
+  width: 100px;
+  text-align: center;
+}
+.Entry p{
+  width: 100px;
+  line-height: 35px;
 }
