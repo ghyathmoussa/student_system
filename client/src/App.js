@@ -7,7 +7,7 @@ import MainPage from './pages/MainPage';
 import StudentSignUp from "./pages/StudentSignUp";
 import ListStudents from "./pages/ListStudents";
 import DeleteStudent from "./pages/DeleteStudent";
-import EnrollForCourse from "./pages/EnrollForCourse"
+import EnrollInCourse from "./pages/EnrollInCourse"
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
       <Route path="/studentSignUp" element={<StudentSignUp/>}></Route>
       <Route path="/listStudents" element={<ListStudents/>}></Route>
       <Route path="/deleteStudent" element={<DeleteStudent/>}></Route>
-      <Route path='/enrollForCourse' element={<EnrollForCourse/>}></Route>
+      <Route path='/enrollInCourse' element={<EnrollInCourse/>}></Route>
     </Routes>
 </BrowserRouter>
   );

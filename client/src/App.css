@@ -142,7 +142,7 @@ body{
 .signUp .myinput{
   background-color: #F8B189;
   width: calc(40% + 120px);
-  height: 40px;
+  height: 50px;
   border: 0px black;
   margin: auto;
 }
@@ -153,7 +153,6 @@ body{
   justify-content: center;
   flex-direction: column;
   margin: auto;
-
 }
 
 /************************************ List Students *****************************/
@@ -236,4 +235,46 @@ body{
 #deleteForm .myinput{
   width:calc(50% + 90px);
   margin-bottom: 15px;
+}
+
+/******************************** EnrollForCourse page **************************/
+.EnrollInCourse{
+  width: 100vw;
+  height: 100vh;
+
+}
+#enrollButton{
+  background-color: #67DCB2;
+  width: 136px;
+  height: 50px;
+  margin: 20px;
+}
+#enrollButton:hover{
+  cursor: pointer;
+}
+#enrollForm{
+  width: 45vw;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+}
+#enrollForm .myinput{
+  background-color: #F8B189;
+  width: calc(40% + 120px);
+  height: 40px;
+  border: 0px black;
+  margin: 20px;
+}
+#enrollForm .dropdown{
+  width: calc(40% + 120px);
+  height: 40px;
+}
+
+#enrollForm .form-select{
+  width:calc(40% + 120px);
+  height: 40px;
+  margin:20px;
 }
