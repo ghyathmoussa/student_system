@@ -12,12 +12,13 @@ const Login = () => {
       password: password,
     }
     console.log(data);
-    axios.post("http://localhost:5000/auth/login", data).then((response) => {
+    axios.post("http://localhost:4000/login", data).then((response) => {
+        console.log(response)
       if (response.data.error) {
         alert(response.data.error);
       } else {
         alert(response.data)
-        window.location.href = `http://localhost:4000/`;
+        //window.location.href = `http://localhost:3000/`;
       }
     });
   }
