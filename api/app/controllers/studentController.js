@@ -45,3 +45,30 @@ exports.findOne = (req,res) => {
         }
     })
 }
+
+exports.getInstallment = (req,res) => {
+    console.log(req.body)
+    mysqlConnection.query(`SELECT odeme FROM ogrenci WHERE tc=${req.body.tc}`,(err,result) => {
+        if(err){
+            console.log(err)
+            res.status(500).json({message:'Error in getInstallment function'})
+        }else{
+            console.log(result)
+            /*
+             * there is another stuf that have to be added
+             * modify DB after getting installment from student
+             * or create new table for payments :) 
+            */
+            res.status(200).json(result)
+        }
+    })
+}
+
+exports.addToCourse = (req,res) => {
+    console.log(req.body)
+    /**
+     * No payment information
+     * create new table for payment
+     * or move on as 0 and 1
+     */
+}
