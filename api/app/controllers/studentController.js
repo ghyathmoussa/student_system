@@ -72,3 +72,16 @@ exports.addToCourse = (req,res) => {
      * or move on as 0 and 1
      */
 }
+
+exports.deleteStudent = (req,res) => {
+    console.log(req.body)
+    mysqlConnection.query(`DELETE FROM ogrenci WHERE tc=${req.body.tc}`,(err,result) => {
+        if(err){
+            console.log(err)
+            res.status(500).json({message:'Error in delete student function'})
+        }else{
+            console.log(result)
+            res.status(200).json(result)
+        }
+    })
+}
