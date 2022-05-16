@@ -17,7 +17,7 @@ const Login = () => {
       if (response.data.error) {
         alert(response.data.error);
       } else {
-        window.location.href = `http://localhost:3000/`;
+        window.location.href = `http://localhost:3000/mainPage`;
       }
     });
   }

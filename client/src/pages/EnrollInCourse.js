@@ -3,15 +3,33 @@ import React , {useState} from "react";
 
 import axios from "axios";
 const EnrollInCourse = () => {
+  let courses=[];
+  let listItems;
+  axios.get("http://localhost:4000/show-courses").then((response) => {
+      if (response.data.error) {
+        alert(response.data.error);
+      } else {
+        courses = response.data
+        
+      }
+    }); 
+    if (courses.length > 0){
+          
+      listItems = courses.map((course) =>
+        <option key={course.ders_id}>
+          {course.dil}
+        </option>
+      );
+      console.log(listItems)
+    }
   const [citizenId, setId] = useState([]);
-  
   const submitHandler = (e) =>{
     e.preventDefault();
     const data={
       citizenId: citizenId,
     }
     console.log(data);
-    axios.post("http://localhost:4000/register-student", data).then((response) => {
+    axios.post("http://localhost:4000/", data).then((response) => {
       if (response.data.error) {
         alert(response.data.error);
       } else {
@@ -28,12 +46,7 @@ const EnrollInCourse = () => {
         <form  id="enrollForm" onSubmit={submitHandler}>
             <input type="text" className="myinput" required placeholder="T.C. No." onChange = { e => setId(e.target.value)}/>
             <select name="courses" id="courses" className="selectpicker" multiple required>
-              <option>dil/kurs adı/... </option>
-              <option>dil/kurs adı/... </option>
-              <option>dil/kurs adı/... </option>
-              <option>dil/kurs adı/... </option>
-              <option>dil/kurs adı/... </option>
-              <option>dil/kurs adı/... </option>
+              {listItems}
             </select>
             <select class="form-select" aria-label="Default select example" required>
               <option hidden>Ödeme Yöntemi Seçin</option>
