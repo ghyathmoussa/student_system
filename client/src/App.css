@@ -179,10 +179,12 @@ body{
   background-color: #F8B189;
   margin: auto;
   padding-top: 15px;
+  border-radius: 20px;
 }
 .columnNames{
   width: 95%;
   border-radius: 40px;
+  height: 30px;
   display: flex;
   flex-grow: column;
   justify-content: space-around;
@@ -278,3 +280,92 @@ body{
   height: 40px;
   margin:20px;
 }
+/******************************** listBranches page **************************/
+.listBranches{
+  width: 100vw;
+  height: 100vh;
+}
+
+.listBranches .listContainer p{
+  width: 150px;
+  text-align: center;
+}
+.listBranches .Entry p{
+  width: 150px;
+  line-height: 35px;
+}
+.listBranches marquee{
+  width: 150px;
+  position: relative;
+}
+.listBranches marquee:hover{
+  cursor: pointer;
+}
+
+.listBranches .popup{
+  background-color: #ffffff;
+  width: 420px;
+  padding: 30px 40px;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 8px;
+  display: none;
+  font-family: "Poppins",sans-serif;
+  text-align: center;
+}
+
+.listBranches .popup button{
+  display: block;
+  margin:  0 0 20px auto;
+  background-color: transparent;
+  font-size: 30px;
+  color: #ffffff;
+  background: #F8B189;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.listBranches .popup h2{
+margin-top: -20px;
+}
+.listBranches .popup p{
+  font-size: 14px;
+  text-align: justify;
+  margin: 20px 0;
+  line-height: 25px;
+}
+
+/*************************************** installment page ********************************/
+
+.installmentForm{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30vw;
+  height: 180px;
+}
+
+#installmentButton{
+  background-color: #67DCB2;
+  width: 136px;
+  height: 50px;
+  margin: auto;
+  cursor: pointer;
+}
+
+#installmentForm input{
+  margin: auto;
+  display: block;
+}
+#installmentForm .myinput{
+  width:calc(50% + 90px);
+  margin-bottom: 15px;
+}
+
