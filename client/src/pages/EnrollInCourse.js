@@ -27,7 +27,7 @@ const EnrollInCourse = () => {
       <button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button>
         <form  id="enrollForm" onSubmit={submitHandler}>
             <input type="text" className="myinput" required placeholder="T.C. No." onChange = { e => setId(e.target.value)}/>
-            <select name="courses" id="courses" className="selectpicker" multiple>
+            <select name="courses" id="courses" className="selectpicker" multiple required>
               <option>dil/kurs adı/... </option>
               <option>dil/kurs adı/... </option>
               <option>dil/kurs adı/... </option>
@@ -35,8 +35,8 @@ const EnrollInCourse = () => {
               <option>dil/kurs adı/... </option>
               <option>dil/kurs adı/... </option>
             </select>
-            <select class="form-select" aria-label="Default select example">
-              <option selected hidden>Ödeme Yöntemi Seçin</option>
+            <select class="form-select" aria-label="Default select example" required>
+              <option hidden>Ödeme Yöntemi Seçin</option>
               <option value="Peşin">Peşin</option>
               <option value="Taksit">Taksit</option>
             </select>
