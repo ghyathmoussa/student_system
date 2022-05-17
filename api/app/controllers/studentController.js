@@ -48,17 +48,12 @@ exports.findOne = (req,res) => {
 
 exports.getInstallment = (req,res) => {
     console.log(req.body)
-    mysqlConnection.query(`SELECT odeme FROM ogrenci WHERE tc=${req.body.tc}`,(err,result) => {
+    mysqlConnection.query(`UPDATE ogrenci SET ogrenci.odeme = GREATEST(0 ,ogrenci.odeme - 1) WHERE ogrenci.id = (SELECT o.id FROM (SELECT * FROM ogrenci) as o WHERE o.tc = ${req.body.tc});`,(err,result) => {
         if(err){
             console.log(err)
             res.status(500).json({message:'Error in getInstallment function'})
         }else{
             console.log(result)
-            /*
-             * there is another stuf that have to be added
-             * modify DB after getting installment from student
-             * or create new table for payments :) 
-            */
             res.status(200).json(result)
         }
     })

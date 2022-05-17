@@ -7,16 +7,27 @@ const Installment= () => {
     const submitHandler = (e) =>{
       e.preventDefault();
       const data={
-        citizenId:  citizenId,
+        tc:  citizenId,
       }
       console.log(data);
-      axios.post("http://localhost:5000/auth/login", data).then((response) => {
-        if (response.data.error) {
-          alert(response.data.error);
-        } else {
-          alert(response.data)
-          window.location.href = `http://localhost:4000/`;
-        }
+      axios.post("http://localhost:4000/get-installment", data).then((response) => {
+          console.log(response.data)
+          if(response.data.affectedRows==0){
+            alert("Hatali TC numara!")
+          }
+          else{
+            if(response.data.changedRows==0){
+              alert("Kalan taksit yok")
+            }
+            else{
+              alert("Taksit basariyla alindi")
+            }
+          }
+                  
+        
+      }).catch((error) => {
+          console.log(error)
+          alert("Hatali TC numara!")
       });
     }
 
