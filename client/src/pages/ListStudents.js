@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 
 
 const ListStudents = () => {
@@ -6,7 +7,7 @@ const ListStudents = () => {
   return (
     <div>
         <div className="listStudents">
-            <button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button>
+        <Link to="/mainPage"><button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button></Link>
             <div className="listContainer">
                 <div className="columnNames">
                     <p>İsim</p>

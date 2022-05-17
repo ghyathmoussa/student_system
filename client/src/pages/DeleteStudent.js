@@ -1,4 +1,5 @@
 import React , {useState} from "react";
+import {Link} from "react-router-dom"
 
 
 import axios from "axios";
@@ -10,12 +11,12 @@ const DeleteStudent = () => {
       citizenId:  citizenId,
     }
     console.log(data);
-    axios.post("http://localhost:5000/auth/login", data).then((response) => {
+    axios.post("http://localhost:4000/", data).then((response) => {
       if (response.data.error) {
         alert(response.data.error);
       } else {
         alert(response.data)
-        window.location.href = `http://localhost:4000/`;
+        window.location.href = `http://localhost:3000/`;
       }
     });
   }
@@ -23,7 +24,7 @@ const DeleteStudent = () => {
   return (
     <div>
         <div className="deleteStudent">
-            <button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button>
+        <Link to="/mainPage"><button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button></Link>
                 <div className="deleteForm">
                 <form  id="deleteForm" onSubmit={submitHandler}>
                     <input type="text" className="myinput" required placeholder="T.C. No." onChange = { e => setId(e.target.value)}/>

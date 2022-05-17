@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 
 
 const ListBranches = () => {
@@ -21,7 +22,7 @@ const ListBranches = () => {
   return (
     <div>
         <div className="listBranches">
-            <button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button>
+        <Link to="/mainPage"><button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button></Link>
             <div className="listContainer">
                 <div className="columnNames">
                     <p>Dersler</p>

@@ -1,4 +1,5 @@
 import React , {useState, useEffect} from "react";
+import {Link} from "react-router-dom"
 
 
 import axios from "axios";
@@ -35,7 +36,7 @@ const EnrollInCourse = () => {
   return (
     <div>
       <div className="EnrollInCourse">
-      <button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button>
+      <Link to="/mainPage"><button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button></Link>
         <form  id="enrollForm" onSubmit={submitHandler}>
             <input type="text" className="myinput" required placeholder="T.C. No." onChange = { e => setId(e.target.value)}/>
             <select name="courses" id="courses" className="selectpicker" multiple required>

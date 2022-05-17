@@ -11,15 +11,18 @@ const Login = () => {
       username:  user,
       password: password,
     }
-    console.log(data);
-    axios.post("http://localhost:4000/login", data).then((response) => {
+
+      axios.post("http://localhost:4000/login", data).then((response) => {
         console.log(response)
-      if (response.data.error) {
-        alert(response.data.error);
-      } else {
+        alert("login succeeded")
         window.location.href = `http://localhost:3000/mainPage`;
-      }
-    });
+      }).catch((error) =>{
+        if( error.response ){
+          console.log(error.response.data);
+          alert(error.response.data.message)
+        }
+      })
+    
   }
 
   return (

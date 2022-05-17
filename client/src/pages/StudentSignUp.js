@@ -1,4 +1,5 @@
 import React , {useState} from "react";
+import {Link} from "react-router-dom"
 
 
 import axios from "axios";
@@ -32,7 +33,7 @@ const StudentSignUp = () => {
   return (
     <div>
       <div className="signUp">
-      <button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button>
+      <Link to="/mainPage"><button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button></Link>
         <form  id="signUpForm" onSubmit={submitHandler}>
             <input type="text" className="myinput" required placeholder="Ad" onChange = { e => setName(e.target.value)}/>
             <input type="text" className="myinput" required placeholder="Soyad" onChange = { e => setSurname(e.target.value)}/>

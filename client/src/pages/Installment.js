@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import {Link} from "react-router-dom"
 
 import axios from "axios";
 const Installment= () => {
@@ -22,7 +23,7 @@ const Installment= () => {
   return (
     <div>
         <div className="installment">
-            <button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button>
+          <Link to="/mainPage"><button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button></Link>
                 <div className="installmentForm">
                 <form  id="installmentForm" onSubmit={submitHandler}>
                     <input type="text" className="myinput" required placeholder="T.C. No." onChange = { e => setId(e.target.value)}/>
