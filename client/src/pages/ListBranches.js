@@ -1,5 +1,6 @@
-import React from "react";
+import React,  {useState, useEffect} from "react";
 import {Link} from "react-router-dom"
+import axios from "axios";
 
 
 const ListBranches = () => {
@@ -19,6 +20,22 @@ const ListBranches = () => {
             document.querySelector(".popup").style.display = "none";
         });
     }
+
+
+    /******Axios *********/
+    const [branches, setBranches] = useState([]);
+    useEffect(() =>{
+        axios.get("http://localhost:4000/show-branchs").then((response) => {
+        if (response.data.error) {
+            alert(response.data.error);
+        } else {
+            setBranches(response.data)
+        }
+        });
+    },[])
+    console.log(branches)
+
+
   return (
     <div>
         <div className="listBranches">
@@ -30,18 +47,15 @@ const ListBranches = () => {
                     <p>Adres</p>
                     <p>Ulaşım Olanakları</p>
                 </div>
-                <div className="Entry">
-                    <marquee behavior="scroll" direction="left" scrollamount="7" onMouseOver={stopIt} onMouseOut={startIt} onClick={popPopUp}>İngilizce,Fransızca,Almanca,İtalyanca</marquee>
-                    <p>Esenler Şubesi</p>
-                    <marquee behavior="scroll" direction="left" scrollamount="7" onMouseOver={stopIt} onMouseOut={startIt} onClick={popPopUp}>gençosman mah. ensar caddesi fsm yurdu güngören/istanbul</marquee>
-                    <p>tramvay,metro,otobüs</p>
-                </div>
-                <div className="Entry">
-                    <marquee behavior="scroll" direction="left"  scrollamount="7" onMouseOver={stopIt} onMouseOut={startIt} onClick={popPopUp}>İngilizce,Fransızca,Almanca,İtalyanca</marquee>
-                    <p>Kağıthane Şubesi</p>
-                    <marquee behavior="scroll" direction="left" scrollamount="7" onMouseOver={stopIt} onMouseOut={startIt} onClick={popPopUp}>gençosman mah. ensar caddesi fsm yurdu güngören/istanbul</marquee>
-                    <p>metro,otobüs</p>
-                </div>
+                {branches.map((branch) =>
+                    <div className="Entry" key={branch.sube_id}>
+                        <marquee behavior="scroll" direction="left" scrollamount="7" onMouseOver={stopIt} onMouseOut={startIt} onClick={popPopUp}>İngilizce,Fransızca,Almanca,İtalyanca</marquee>
+                        <p>{branch.isim}</p>
+                        <marquee behavior="scroll" direction="left" scrollamount="7" onMouseOver={stopIt} onMouseOut={startIt} onClick={popPopUp}>{branch.adres}</marquee>
+                        <p>{branch.tanitim}</p>
+                    </div>
+                )}
+                
             </div>
             <div className="popup">
                 <button id="close">&times;</button>
