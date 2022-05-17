@@ -24,6 +24,7 @@ const ListBranches = () => {
 
     /******Axios *********/
     const [branches, setBranches] = useState([]);
+    const [langugaes, setLanguages] = useState([]);
     useEffect(() =>{
         axios.get("http://localhost:4000/show-branchs").then((response) => {
         if (response.data.error) {
@@ -31,10 +32,30 @@ const ListBranches = () => {
         } else {
             setBranches(response.data)
         }
+        }).catch((error) => {
+            console.log(error)
         });
-    },[])
-    console.log(branches)
 
+    },[])
+    /*
+    const getLanguages = (branch_id) => {
+        let branch_languages
+        const data={
+            branch_id:  branch_id
+          }
+        axios.post("http://localhost:4000/show-languages-branch", data).then((response) => {
+        if (response.data.error) {
+            alert(response.data.error);
+        } else {
+            branch_languages = response.data
+        }
+        }).catch((error) => {
+            console.log(error)
+        });
+        return branch_languages;
+    }
+    console.log(getLanguages(1))
+*/
 
   return (
     <div>
