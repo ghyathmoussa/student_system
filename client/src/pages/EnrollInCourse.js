@@ -46,13 +46,7 @@ const EnrollInCourse = () => {
               </option>
             )}
             </select>
-            <ul>
-            {courses.map((course) =>
-              <li key={course.ders_id}>
-                {course.dil} / {course.gun} / {course.starttime} / {course.endtime} / {course.fiyat}TL
-              </li>
-            )}
-            </ul>
+            
             
             
             <select class="form-select" aria-label="Default select example" required>

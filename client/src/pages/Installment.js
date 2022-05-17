@@ -23,11 +23,12 @@ const Installment= () => {
               alert("Taksit basariyla alindi")
             }
           }
-                  
+          window.location.reload()        
         
       }).catch((error) => {
           console.log(error)
           alert("Hatali TC numara!")
+          window.location.reload()
       });
     }
 

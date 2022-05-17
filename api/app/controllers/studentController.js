@@ -2,9 +2,9 @@ const mysqlConnection = require("../config/db_config")
 
 exports.createStudents = (req,res) => {
     console.log(req.body)
-    const {name,surname,tc,phone,adress} = req.body
+    const {name,surname,tc,phone,address} = req.body
 
-    mysqlConnection.query('INSERT (name,surname,tc,adress) to ogrenci VALUES (?,?,?,?,?)',[name,surname,tc,phone,adress],(err,result) => {
+    mysqlConnection.query('INSERT INTO ogrenci(isim, soyisim, tc, tel, adres, odeme) VALUES (?,?,?,?,?,?)',[name,surname,tc,phone,address,0],(err,result) => {
         if(err){
             console.log(err)
             res.status(500).json({message:'error in insertion'})

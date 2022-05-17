@@ -15,18 +15,20 @@ const StudentSignUp = () => {
     const data={
       name:  name,
       surname: surname,
-      citizenId: citizenId,
+      tc: citizenId,
       phone: phone,
       address: address,
     }
     console.log(data);
     axios.post("http://localhost:4000/register-student", data).then((response) => {
-      if (response.data.error) {
-        alert(response.data.error);
-      } else {
-        alert(response.data)
-        window.location.href = `http://localhost:3000/mainPage`;
-      }
+        console.log(response.data)
+        alert("Ogrenci basariyla eklendi!")
+        window.location.reload()
+
+    }).catch((error)=>{
+      console.log(error)
+      alert("Bir hata oldu")
+      window.location.reload()
     });
   }
 

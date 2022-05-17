@@ -8,16 +8,22 @@ const DeleteStudent = () => {
   const submitHandler = (e) =>{
     e.preventDefault();
     const data={
-      citizenId:  citizenId,
+      tc:  citizenId,
     }
     console.log(data);
-    axios.post("http://localhost:4000/", data).then((response) => {
-      if (response.data.error) {
-        alert(response.data.error);
-      } else {
-        alert(response.data)
-        window.location.href = `http://localhost:3000/`;
-      }
+    axios.post("http://localhost:4000/delete-student", data).then((response) => {
+        console.log(response)
+        if(response.data.affectedRows==0){
+          alert("Ogrenci bulunmadi")
+        }
+        else{
+          alert("Ogrenci basariyla silendi")
+        }
+        window.location.reload()
+    }).catch((error)=>{
+      console.log(error)
+      alert("Hatali TC numara!")
+      window.location.reload()
     });
   }
 
