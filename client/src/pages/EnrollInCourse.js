@@ -1,27 +1,20 @@
-import React , {useState} from "react";
+import React , {useState, useEffect} from "react";
 
 
 import axios from "axios";
 const EnrollInCourse = () => {
-  let courses=[];
-  let listItems;
-  axios.get("http://localhost:4000/show-courses").then((response) => {
+  const [courses, setCourses] = useState([]);
+  useEffect(() =>{
+    axios.get("http://localhost:4000/show-courses").then((response) => {
       if (response.data.error) {
         alert(response.data.error);
       } else {
-        courses = response.data
-        
+        setCourses(response.data)
       }
-    }); 
-    if (courses.length > 0){
-          
-      listItems = courses.map((course) =>
-        <option key={course.ders_id}>
-          {course.dil}
-        </option>
-      );
-      console.log(listItems)
-    }
+    });
+  },[])
+  
+
   const [citizenId, setId] = useState([]);
   const submitHandler = (e) =>{
     e.preventDefault();
@@ -36,7 +29,7 @@ const EnrollInCourse = () => {
         alert(response.data)
         window.location.href = `http://localhost:3000/mainPage`;
       }
-    });
+    }, []);
   }
 
   return (
@@ -46,8 +39,21 @@ const EnrollInCourse = () => {
         <form  id="enrollForm" onSubmit={submitHandler}>
             <input type="text" className="myinput" required placeholder="T.C. No." onChange = { e => setId(e.target.value)}/>
             <select name="courses" id="courses" className="selectpicker" multiple required>
-              {listItems}
+            {courses.map((course) =>
+              <option value={course.ders_id} key={course.ders_id}>
+                {course.dil} / {course.gun} / {course.starttime} / {course.endtime} / {course.fiyat}TL
+              </option>
+            )}
             </select>
+            <ul>
+            {courses.map((course) =>
+              <li key={course.ders_id}>
+                {course.dil} / {course.gun} / {course.starttime} / {course.endtime} / {course.fiyat}TL
+              </li>
+            )}
+            </ul>
+            
+            
             <select class="form-select" aria-label="Default select example" required>
               <option hidden>Ödeme Yöntemi Seçin</option>
               <option value="Peşin">Peşin</option>
