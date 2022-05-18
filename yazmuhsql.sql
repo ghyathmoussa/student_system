@@ -118,8 +118,9 @@ UPDATE ogrenci SET ogrenci.odeme = GREATEST(0 ,ogrenci.odeme - 1) WHERE ogrenci.
 -- kurs secme ekranında gelecek dersler bilgiler eklenebilir cıkarilabilir fazla veya eksik olduysa
 SELECT ders.dil, sube.isim, ders.gun, ders.starttime, ders.endtime, ders.fiyat FROM ders, sube WHERE ders.sube_id = sube.sube_id ORDER BY ders.dil; 
 
--- silme kontrolu deneme
-SELECT IFNULL( (SELECT kayit_id FROM kayit WHERE ogrenci_id = (SELECT ogrenci_id FROM ogrenci WHERE tc = '43512373898') ) , -1);
+-- silme kontrolu onceden TC kontrolu yapalim ki olmayan bir tc girildiğinde uyarı versin bunun için ayrı bir test yazarız belki basite kaçarak :)
+SELECT IFNULL((SELECT id FROM ogrenci WHERE tc = '111111'), -1);
+SELECT IFNULL( (SELECT kayit_id FROM kayit WHERE ogrenci_id = (SELECT ogrenci_id FROM ogrenci WHERE tc = '43512373828') ) , -1);
 
 
                        
