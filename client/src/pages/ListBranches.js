@@ -37,7 +37,7 @@ const ListBranches = () => {
         });
 
     },[])
-    /*
+    
     const getLanguages = (branch_id) => {
         let branch_languages
         const data={
@@ -55,7 +55,7 @@ const ListBranches = () => {
         return branch_languages;
     }
     console.log(getLanguages(1))
-*/
+
 
   return (
     <div>
@@ -70,7 +70,7 @@ const ListBranches = () => {
                 </div>
                 {branches.map((branch) =>
                     <div className="Entry" key={branch.sube_id}>
-                        <marquee behavior="scroll" direction="left" scrollamount="7" onMouseOver={stopIt} onMouseOut={startIt} onClick={popPopUp}>İngilizce,Fransızca,Almanca,İtalyanca</marquee>
+                        <marquee behavior="scroll" direction="left" scrollamount="7" onMouseOver={stopIt} onMouseOut={startIt} onClick={popPopUp}>{getLanguages(branch.sube_id)}</marquee>
                         <p>{branch.isim}</p>
                         <marquee behavior="scroll" direction="left" scrollamount="7" onMouseOver={stopIt} onMouseOut={startIt} onClick={popPopUp}>{branch.adres}</marquee>
                         <p>{branch.tanitim}</p>
