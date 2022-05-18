@@ -12,25 +12,31 @@ const EnrollInCourse = () => {
       } else {
         setCourses(response.data)
       }
+    }).catch((error)=>{
+      console.log(error)
     });
   },[])
   
 
   const [citizenId, setId] = useState([]);
+  const [course, setCourse] = useState([]);
+  const [odeme, setOdeme] = useState([]);
   const submitHandler = (e) =>{
     e.preventDefault();
     const data={
-      citizenId: citizenId,
+      tc: citizenId,
+      course: course,
+      odeme: odeme,
+
     }
     console.log(data);
-    axios.post("http://localhost:4000/", data).then((response) => {
-      if (response.data.error) {
-        alert(response.data.error);
-      } else {
-        alert(response.data)
-        window.location.href = `http://localhost:3000/mainPage`;
-      }
-    }, []);
+    axios.post("http://localhost:4000/add-to-course", data).then((response) => {
+      console.log(response)
+      alert("Ogrenci Basariyla kursa eklendi")
+    }, []).catch((error)=>{
+      console.log(error)
+      alert("Hatali TC")
+    });
   }
 
   return (
@@ -38,25 +44,20 @@ const EnrollInCourse = () => {
       <div className="EnrollInCourse">
       <Link to="/mainPage"><button id="backButton" type="button" class="btn btn-primary btn-lg">Geri</button></Link>
         <form  id="enrollForm" onSubmit={submitHandler}>
+
             <input type="text" className="myinput" required placeholder="T.C. No." onChange = { e => setId(e.target.value)}/>
-            <select name="courses" id="courses" className="selectpicker" multiple required>
+            <select onChange = { e => setCourse(e.target.value)} name="courses"    required>
             {courses.map((course) =>
-              <option value={course.ders_id} key={course.ders_id}>
-                {course.dil} / {course.gun} / {course.starttime} / {course.endtime} / {course.fiyat}TL
+              <option key={course.ders_id} value={course.ders_id}>
+                {course.dil} / {course.gun} / From {course.starttime} To {course.endtime} / {course.fiyat}TL
               </option>
             )}
             </select>
-            {courses.map((course) =>
-              <p value={course.ders_id} key={course.ders_id}>
-                {course.dil} / {course.gun} / {course.starttime} / {course.endtime} / {course.fiyat}TL
-              </p>
-            )}
             
-            
-            <select class="form-select" aria-label="Default select example" required>
+            <select class="form-select" aria-label="Default select example" required onChange = { e => setOdeme(e.target.value)}>
               <option hidden>Ödeme Yöntemi Seçin</option>
-              <option value="Peşin">Peşin</option>
-              <option value="Taksit">Taksit</option>
+              <option value="0">Peşin</option>
+              <option value="6">Taksit</option>
             </select>
             <input id="enrollButton" type="submit"  value="Kaydet" className="btn btn-primary mybtn" />
         </form>

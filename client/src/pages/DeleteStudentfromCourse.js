@@ -13,7 +13,7 @@ const DeleteStudent = () => {
     console.log(data);
     axios.post("http://localhost:4000/delete-student-from-course", data).then((response) => {
         console.log(response)
-        if(response.data.affectedRows==0){
+        if(response.data.affectedRows ===0){
           alert("Ogrenci bulunmadi")
         }
         else{

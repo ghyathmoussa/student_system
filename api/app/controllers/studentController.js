@@ -61,11 +61,16 @@ exports.getInstallment = (req,res) => {
 
 exports.addToCourse = (req,res) => {
     console.log(req.body)
-    /**
-     * No payment information
-     * create new table for payment
-     * or move on as 0 and 1
-     */
+    mysqlConnection.query(`INSERT INTO kayit(ogrenci_id, ders_id, pesin) VALUES((SELECT id FROM ogrenci WHERE tc=${req.body.tc}), ${req.body.course}, ${req.body.odeme});`,(err,result) => {
+        if(err){
+            console.log(err)
+            res.status(500).json({message:'Error in delete student function'})
+        }else{
+            console.log(result)
+            res.status(200).json(result)
+        }
+    })
+    
 }
 
 exports.deleteStudent = (req,res) => {
