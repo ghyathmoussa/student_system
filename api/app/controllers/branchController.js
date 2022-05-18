@@ -1,12 +1,12 @@
 const mysqlConnection = require("../config/db_config")
 
 exports.showBranchs = (req,res) => {
-    mysqlConnection.query('SELECT * FROM sube',(err,result) => {
+    mysqlConnection.query("SELECT GROUP_CONCAT(DISTINCT ders.dil ORDER BY ders.dil SEPARATOR ', ') AS diller, sube.isim, sube.adres, sube.tanitim FROM sube, ders WHERE sube.sube_id=ders.sube_id GROUP BY sube.sube_id;",(err,result) => {
         console.log(result)
         // console.log(fields)
         if(err){
             console.log(err)
-            res.status(500).json({message:'error in showStudent function'})
+            res.status(500).json({message:'error in showBranches function'})
         }else{
             console.log(result)
             if(result){

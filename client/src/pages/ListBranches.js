@@ -24,7 +24,6 @@ const ListBranches = () => {
 
     /******Axios *********/
     const [branches, setBranches] = useState([]);
-    const [langugaes, setLanguages] = useState([]);
     useEffect(() =>{
         axios.get("http://localhost:4000/show-branchs").then((response) => {
         if (response.data.error) {
@@ -37,24 +36,7 @@ const ListBranches = () => {
         });
 
     },[])
-    
-    const getLanguages = (branch_id) => {
-        let branch_languages
-        const data={
-            branch_id:  branch_id
-          }
-        axios.post("http://localhost:4000/show-languages-branch", data).then((response) => {
-        if (response.data.error) {
-            alert(response.data.error);
-        } else {
-            branch_languages = response.data
-        }
-        }).catch((error) => {
-            console.log(error)
-        });
-        return branch_languages;
-    }
-    console.log(getLanguages(1))
+
 
 
   return (
@@ -70,7 +52,7 @@ const ListBranches = () => {
                 </div>
                 {branches.map((branch) =>
                     <div className="Entry" key={branch.sube_id}>
-                        <marquee behavior="scroll" direction="left" scrollamount="7" onMouseOver={stopIt} onMouseOut={startIt} onClick={popPopUp}>{getLanguages(branch.sube_id)}</marquee>
+                        <marquee behavior="scroll" direction="left" scrollamount="7" onMouseOver={stopIt} onMouseOut={startIt} onClick={popPopUp}>{branch.diller}</marquee>
                         <p>{branch.isim}</p>
                         <marquee behavior="scroll" direction="left" scrollamount="7" onMouseOver={stopIt} onMouseOut={startIt} onClick={popPopUp}>{branch.adres}</marquee>
                         <p>{branch.tanitim}</p>
