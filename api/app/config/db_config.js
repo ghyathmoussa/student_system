@@ -4,12 +4,11 @@ const mysql = require('mysql');
 var mysqlConnection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'ghrefd11!',
+    password: 'test123',
     database: 'birlisanbirinsan',
     multipleStatements: true
   });
-  console.log('test succeded.')
-  mysqlConnection.connect((err) => {
+   mysqlConnection.connect((err) => {
     if (!err)
         console.log('DB connection succeded.');
     else

@@ -17,7 +17,7 @@ const DeleteStudent = () => {
           alert("Ogrenci bulunmadi")
         }
         else{
-          alert("Ogrenci basariyla silendi")
+          alert("Ogrenci basariyla silindi")
         }
         window.location.reload()
     }).catch((error)=>{

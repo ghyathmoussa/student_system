@@ -48,7 +48,7 @@ exports.findOne = (req,res) => {
 
 exports.getInstallment = (req,res) => {
     console.log(req.body)
-    mysqlConnection.query(`UPDATE ogrenci SET ogrenci.odeme = GREATEST(0 ,ogrenci.odeme - 1) WHERE ogrenci.id = (SELECT o.id FROM (SELECT * FROM ogrenci) as o WHERE o.tc = ${req.body.tc});`,(err,result) => {
+    mysqlConnection.query(`UPDATE kayit SET kayit.pesin = GREATEST(0 ,kayit.pesin - 1) WHERE kayit.ogrenci_id = (SELECT o.id FROM (SELECT * FROM ogrenci) as o WHERE o.tc = ${req.body.tc});`,(err,result) => {
         if(err){
             console.log(err)
             res.status(500).json({message:'Error in getInstallment function'})
