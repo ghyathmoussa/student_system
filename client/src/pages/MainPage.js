@@ -15,7 +15,7 @@ const MainPage = () => {
                     </div>
                     <div className="right-container">
                     <Link to="/enrollInCourse"><button type="button" class="btn btn-primary btn-lg">Öğrenciyi Kursa Ekle</button></Link>
-                    <Link to="/deleteStudent"><button type="button" class="btn btn-primary btn-lg">Öğrenciyi Kurstan Sil</button></Link>
+                    <Link to="/DeleteStudentfromCourse"><button type="button" class="btn btn-primary btn-lg">Öğrenciyi Kurstan Sil</button></Link>
                     <Link to="/installment"><button type="button" class="btn btn-primary btn-lg">Taksit Al</button></Link>
                     <Link to="/"><button type="button" class="btn btn-primary btn-lg">Çıkış</button></Link>
 
