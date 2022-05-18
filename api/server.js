@@ -18,4 +18,4 @@ app.use(body_parser.json())
 
 app.use('/', router);
 
-app.listen(port,() => console.log(`Listening to port:${port}`))
+module.exports = app
