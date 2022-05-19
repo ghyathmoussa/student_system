@@ -12,7 +12,7 @@ exports.createStudents = (req,res) => {
             if(result){
                 res.status(200).json({message:'insert opertation successful!'})
             }else{
-                res.json({message:'error in result'})
+                res.status(500).json({message:'error in result'})
             }
         }
     })
@@ -80,8 +80,12 @@ exports.deleteStudent = (req,res) => {
             console.log(err)
             res.status(500).json({message:'Error in delete student function'})
         }else{
-            console.log(result)
-            res.status(200).json(result)
+            if(result.affectedRows !=0){
+                console.log('result',result)
+                res.status(200).json(result)
+            }else{
+                res.status(500).json({message:'tc not found'})
+            }
         }
     })
 }
