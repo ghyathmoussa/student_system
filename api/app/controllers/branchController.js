@@ -46,3 +46,19 @@ exports.showLanguagesOne = (req,res) => {
         }
     })
 }
+
+exports.showCoursesOne = (req,res) => {
+    mysqlConnection.query(`SELECT ders.ders_id, ders.dil ,ders.starttime, ders.endtime, ders.gun, ders.fiyat FROM  ders WHERE ders.sube_id = ${req.body.branch_id} ;
+    `,(err,result) => {
+        if(err){
+            console.log(err)
+            res.status(500).json({message:`Error in finding ${req.body.branch_id}`})
+        }else{
+            console.log(result)
+            res.status(200).json({
+                message:`${req.body.branch_id} found!`,
+                result:result
+            })
+        }
+    })
+}

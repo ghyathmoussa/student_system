@@ -15,6 +15,8 @@ router.post('/delete-student-from-course',studentC.deleteStudentFromCourse)
 router.post('/get-installment',studentC.getInstallment)
 router.post('/add-to-course',studentC.addToCourse)
 router.post('/show-languages-branch',branchC.showLanguagesOne)
+router.post('/show-courses-branch',branchC.showCoursesOne)
 router.get('/show-branchs',branchC.showBranchs)
 router.get('/show-courses',courseC.showCourses)
 module.exports = router;
+

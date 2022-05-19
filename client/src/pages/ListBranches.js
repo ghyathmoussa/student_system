@@ -4,13 +4,36 @@ import axios from "axios";
 
 
 const ListBranches = () => {
+    const [courses, setCourses] = useState([]);
     const stopIt = (e) =>{
         e.target.stop();
     }
     const startIt = (e) =>{
         e.target.start();
     }
-    const popPopUp = (e) =>{
+    const clickHandler = (id) =>{
+        console.log("inside func id is: ", id)
+            axios.post("http://localhost:4000//show-courses-branch", {branch_id: id}).then((response) => {
+            if (response.data.error) {
+                alert(response.data.error);
+            } else {
+                setCourses(response.data)
+            }
+            }).catch((error) => {
+                console.log(error)
+            });
+      }
+    const popPopUp = (e, id) =>{
+        /*axios.post("http://localhost:4000//show-courses-branch", {branch_id: id}).then((response) => {
+            if (response.data.error) {
+                alert(response.data.error);
+            } else {
+                setCourses(response.data)
+            }
+            }).catch((error) => {
+                console.log(error)
+            });*/
+
         setTimeout(function open(event){
                 document.querySelector(".popup").style.display = "block";
             },0
@@ -52,9 +75,9 @@ const ListBranches = () => {
                 </div>
                 {branches.map((branch) =>
                     <div className="Entry" key={branch.sube_id}>
-                        <marquee behavior="scroll" direction="left" scrollamount="7" onMouseOver={stopIt} onMouseOut={startIt} onClick={popPopUp}>{branch.diller}</marquee>
+                        <marquee behavior="scroll" direction="left" scrollamount="7" onMouseOver={stopIt} onMouseOut={startIt} onClick={clickHandler(branch.sube_id)}>{branch.diller}</marquee>
                         <p>{branch.isim}</p>
-                        <marquee behavior="scroll" direction="left" scrollamount="7" onMouseOver={stopIt} onMouseOut={startIt} onClick={popPopUp}>{branch.adres}</marquee>
+                        <marquee behavior="scroll" direction="left" scrollamount="7" onMouseOver={stopIt} onMouseOut={startIt} onClick={clickHandler(branch.sube_id)}>{branch.adres}</marquee>
                         <p>{branch.tanitim}</p>
                     </div>
                 )}
@@ -63,9 +86,12 @@ const ListBranches = () => {
             <div className="popup">
                 <button id="close">&times;</button>
                 <h2>Derslerin Seansları</h2>
-                <p>
-                buraya seanslar gelecek
-                </p>
+                {courses.map((course) =>
+                   <p key={course.ders_id}>
+                    {course.dil} / {course.gun} / From {course.starttime} To {course.endtime} / {course.fiyat}TL
+                    </p>
+                )}
+                
             </div>
         </div>
     </div>

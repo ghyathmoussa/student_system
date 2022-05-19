@@ -4,7 +4,7 @@ exports.createStudents = (req,res) => {
     console.log(req.body)
     const {name,surname,tc,phone,address} = req.body
 
-    mysqlConnection.query('INSERT INTO ogrenci(isim, soyisim, tc, tel, adres, odeme) VALUES (?,?,?,?,?,?)',[name,surname,tc,phone,address,0],(err,result) => {
+    mysqlConnection.query('INSERT INTO ogrenci(isim, soyisim, tc, tel, adres) VALUES (?,?,?,?,?)',[name,surname,tc,phone,address],(err,result) => {
         if(err){
             console.log(err)
             res.status(500).json({message:'error in insertion'})
@@ -31,7 +31,7 @@ exports.showStudents = (req,res) => {
             }
         }
     })
-}
+} 
 
 exports.findOne = (req,res) => {
     console.log(req.body)
