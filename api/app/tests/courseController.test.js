@@ -11,4 +11,4 @@ describe('show courses ',  function() {
         const res = await request.get('/show-courses')
         expect(res.status).toBe(200)
     })
-  });
+});
