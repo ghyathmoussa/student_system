@@ -30,7 +30,7 @@ describe('Unit Test for students operations',() => {
                 surnamee:'Moussa',
                 tcr:12345678982,
                 phonee:23428154968,
-                adresse:'Istanbul'
+                addresse:'Istanbul'
             })
         expect(res.status).toBe(500)
     })
@@ -51,4 +51,15 @@ describe('Unit Test for students operations',() => {
             })
         expect(res.status).toBe(500)
     })
+
+    // öğrenci daha önce kaytlı ve taksit ödeme şklinde kaytlı olması gerekiyor
+    /*
+    it('öğrenciden ödeme alma testi', async() => {
+        const res = await request.post('/get-installment')
+            .send({
+                tc:
+            })
+            expect(res.status).toBe(200)
+    })
+    */
 })
