@@ -45,7 +45,8 @@ CREATE TABLE ogrenci(id int auto_increment PRIMARY KEY,
                      tel varchar(15) NOT NULL,
                      adres varchar(255) NOT NULL);
 
-CREATE TABLE kayit(ogrenci_id int NOT NULL,
+CREATE TABLE kayit(id int auto_increment PRIMARY KEY,
+                    ogrenci_id int NOT NULL,
 				   FOREIGN KEY(ogrenci_id) REFERENCES ogrenci(id),
 				   ders_id int NOT NULL,
                    FOREIGN KEY(ders_id) REFERENCES ders(ders_id),
