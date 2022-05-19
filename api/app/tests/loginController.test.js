@@ -8,8 +8,8 @@ describe('login',  function() {
     it('responds with elaman_id', async function() {
        const reponse = await request.post('/login')
         .send({
-            username:  "denemekayiteluser1",
-            password: "denemekayitelpass1",
+            username:  "kayitelemani1",
+            password: "kayitelemanisifre1",
           })
         expect(reponse.status).toBe(200)
     });

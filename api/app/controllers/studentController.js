@@ -20,7 +20,11 @@ exports.createStudents = (req,res) => {
 
 exports.showStudents = (req,res) => {
     console.log(req.body)
+<<<<<<< HEAD
+    mysqlConnection.query('SELECT ogrenci.isim, ogrenci.soyisim, ogrenci.tc, kayit.ders_id, kayit.pesin FROM ogrenci,kayit WHERE ogrenci.id=kayit.ogrenci_id ;',(err,result) => {
+=======
     mysqlConnection.query('SELECT kayit.id, ogrenci.isim, ogrenci.soyisim, ogrenci.tc, kayit.ders_id, kayit.pesin FROM ogrenci,kayit WHERE ogrenci.id=kayit.ogrenci_id ;',(err,result) => {
+>>>>>>> 69ed2ae0c0a969b1783c92554f752cca1d60c2b5
         if(err){
             console.log(err)
             res.status(500).json({message:'error in showStudent function'})
