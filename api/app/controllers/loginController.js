@@ -19,3 +19,7 @@ exports.login = async (req,res) =>{
     })
 }
 
+exports.fortest = async (a,b) =>{
+    return a+b
+}
+
