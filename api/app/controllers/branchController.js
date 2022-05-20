@@ -1,7 +1,7 @@
 const mysqlConnection = require("../config/db_config")
 
 exports.showBranchs = (req,res) => {
-    mysqlConnection.query("SELECT GROUP_CONCAT(DISTINCT ders.dil ORDER BY ders.dil SEPARATOR ', ') AS diller, sube.isim, sube.adres, sube.tanitim FROM sube, ders WHERE sube.sube_id=ders.sube_id GROUP BY sube.sube_id;",(err,result) => {
+    mysqlConnection.query("SELECT GROUP_CONCAT(DISTINCT ders.dil ORDER BY ders.dil SEPARATOR ', ') AS  diller,sube.sube_id, sube.isim, sube.adres, sube.tanitim FROM sube, ders WHERE sube.sube_id=ders.sube_id GROUP BY sube.sube_id;",(err,result) => {
         console.log(result)
         // console.log(fields)
         if(err){
@@ -33,6 +33,7 @@ exports.findOne = (req,res) => {
 }
 
 exports.showLanguagesOne = (req,res) => {
+    console.log(REQ.BODY)
     mysqlConnection.query(`SELECT  GROUP_CONCAT(DISTINCT ders.dil ORDER BY ders.dil SEPARATOR ', ') AS diller FROM sube, ders WHERE ders.sube_id=${req.body.branch_id} GROUP BY ders.sube_id;`,(err,result) => {
         if(err){
             console.log(err)
