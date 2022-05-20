@@ -33,7 +33,7 @@ exports.findOne = (req,res) => {
 }
 
 exports.showLanguagesOne = (req,res) => {
-    console.log(REQ.BODY)
+    console.log(req.body)
     mysqlConnection.query(`SELECT  GROUP_CONCAT(DISTINCT ders.dil ORDER BY ders.dil SEPARATOR ', ') AS diller FROM sube, ders WHERE ders.sube_id=${req.body.branch_id} GROUP BY ders.sube_id;`,(err,result) => {
         if(err){
             console.log(err)

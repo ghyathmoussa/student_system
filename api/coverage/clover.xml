@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1652992978169" clover="3.2.0">
-  <project timestamp="1652992978170" name="All files">
-    <metrics statements="156" coveredstatements="100" conditionals="42" coveredconditionals="19" methods="28" coveredmethods="15" elements="226" coveredelements="134" complexity="0" loc="156" ncloc="156" packages="4" files="7" classes="7"/>
+<coverage generated="1653029056168" clover="3.2.0">
+  <project timestamp="1653029056168" name="All files">
+    <metrics statements="157" coveredstatements="101" conditionals="42" coveredconditionals="19" methods="28" coveredmethods="15" elements="227" coveredelements="135" complexity="0" loc="157" ncloc="157" packages="4" files="7" classes="7"/>
     <package name="api">
       <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="0" coveredmethods="0"/>
       <file name="server.js" path="D:\YTU\3rdyear\6th_term\yazılım müh\proje\student_system\api\server.js">
@@ -34,9 +34,9 @@
       </file>
     </package>
     <package name="api.app.controllers">
-      <metrics statements="118" coveredstatements="63" conditionals="38" coveredconditionals="16" methods="27" coveredmethods="14"/>
+      <metrics statements="119" coveredstatements="64" conditionals="38" coveredconditionals="16" methods="27" coveredmethods="14"/>
       <file name="branchController.js" path="D:\YTU\3rdyear\6th_term\yazılım müh\proje\student_system\api\app\controllers\branchController.js">
-        <metrics statements="32" coveredstatements="15" conditionals="10" coveredconditionals="3" methods="8" coveredmethods="4"/>
+        <metrics statements="33" coveredstatements="16" conditionals="10" coveredconditionals="3" methods="8" coveredmethods="4"/>
         <line num="1" count="5" type="stmt"/>
         <line num="3" count="5" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -57,18 +57,19 @@
         <line num="27" count="0" type="stmt"/>
         <line num="35" count="5" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
-        <line num="37" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="38" count="0" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="39" count="0" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
         <line num="42" count="1" type="stmt"/>
-        <line num="50" count="5" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="53" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="54" count="0" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="51" count="5" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="54" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="55" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
       </file>
       <file name="courseContoller.js" path="D:\YTU\3rdyear\6th_term\yazılım müh\proje\student_system\api\app\controllers\courseContoller.js">
         <metrics statements="11" coveredstatements="9" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="2"/>
@@ -122,48 +123,48 @@
         <line num="28" count="2" type="stmt"/>
         <line num="29" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="30" count="2" type="stmt"/>
-        <line num="36" count="5" type="stmt"/>
+        <line num="35" count="5" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="49" count="5" type="stmt"/>
+        <line num="48" count="5" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="52" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="52" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
         <line num="56" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="62" count="5" type="stmt"/>
+        <line num="61" count="5" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
         <line num="63" count="0" type="stmt"/>
-        <line num="64" count="0" type="stmt"/>
-        <line num="65" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="64" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="65" count="0" type="stmt"/>
         <line num="66" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
         <line num="69" count="0" type="stmt"/>
-        <line num="70" count="0" type="stmt"/>
-        <line num="76" count="5" type="stmt"/>
+        <line num="75" count="5" type="stmt"/>
+        <line num="76" count="2" type="stmt"/>
         <line num="77" count="2" type="stmt"/>
-        <line num="78" count="2" type="stmt"/>
-        <line num="79" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="78" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="79" count="0" type="stmt"/>
         <line num="80" count="0" type="stmt"/>
-        <line num="81" count="0" type="stmt"/>
-        <line num="83" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="82" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="83" count="1" type="stmt"/>
         <line num="84" count="1" type="stmt"/>
-        <line num="85" count="1" type="stmt"/>
-        <line num="87" count="1" type="stmt"/>
-        <line num="95" count="5" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="94" count="5" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
         <line num="96" count="0" type="stmt"/>
-        <line num="97" count="0" type="stmt"/>
-        <line num="98" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="97" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="98" count="0" type="stmt"/>
         <line num="99" count="0" type="stmt"/>
-        <line num="100" count="0" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
         <line num="102" count="0" type="stmt"/>
-        <line num="103" count="0" type="stmt"/>
       </file>
     </package>
     <package name="api.app.routes">

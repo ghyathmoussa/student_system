@@ -29,9 +29,8 @@ exports.showStudents = (req, res) => {
             if(result){
                 res.status(200).json(result)
             }
-        })
-    })
-}
+        }})
+    }
 
 exports.findOne = (req, res) => {
     console.log(req.body)
