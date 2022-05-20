@@ -49,7 +49,7 @@ const EnrollInCourse = () => {
             <select onChange = { e => setCourse(e.target.value)} name="courses"    required>
             {courses.map((course) =>
               <option key={course.ders_id} value={course.ders_id}>
-                {course.dil} / {course.gun} / From {course.starttime} To {course.endtime} / {course.fiyat}TL
+                {course.dil} / {course.gun} / From {course.starttime} To {course.endtime} / {course.fiyat}TL / {course.isim} 
               </option>
             )}
             </select>
@@ -57,7 +57,7 @@ const EnrollInCourse = () => {
             <select class="form-select" aria-label="Default select example" required onChange = { e => setOdeme(e.target.value)}>
               <option hidden>Ödeme Yöntemi Seçin</option>
               <option value="0">Peşin</option>
-              <option value="6">Taksit</option>
+              <option value="6">Taksit</option> 
             </select>
             <input id="enrollButton" type="submit"  value="Kaydet" className="btn btn-primary mybtn" />
         </form>
