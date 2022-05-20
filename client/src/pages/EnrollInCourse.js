@@ -46,7 +46,8 @@ const EnrollInCourse = () => {
         <form  id="enrollForm" onSubmit={submitHandler}>
 
             <input type="text" className="myinput" required placeholder="T.C. No." onChange = { e => setId(e.target.value)}/>
-            <select onChange = { e => setCourse(e.target.value)} name="courses"    required>
+            <select id="courseSelection"onChange = { e => setCourse(e.target.value)} name="courses"    required>
+            <option hidden>Bir Kurs Seçin</option>
             {courses.map((course) =>
               <option key={course.ders_id} value={course.ders_id}>
                 {course.dil} / {course.gun} / From {course.starttime} To {course.endtime} / {course.fiyat}TL / {course.isim} 

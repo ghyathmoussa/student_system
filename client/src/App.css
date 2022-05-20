@@ -280,6 +280,13 @@ body{
   height: 40px;
   margin:20px;
 }
+
+#enrollForm #courseSelection{
+  width:calc(40% + 120px);
+  height: 40px;
+  margin: 20px;
+
+}
 /******************************** listBranches page **************************/
 .listBranches{
   width: 100vw;
